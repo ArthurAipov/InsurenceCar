@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="InsurenceCar.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:InsurenceCar"
+    xmlns:localPages="clr-namespace:InsurenceCar.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Title="InsurenceCar">
+
+    <ShellContent Title="Вход"
+                  ContentTemplate="{DataTemplate localPages:LoginPage}"
+                  Route="LoginPage" />
+    <ShellContent Title="Регистрация"
+                  ContentTemplate="{DataTemplate localPages:RegistrationPage}"
+                  Route="RegistrationPage" />
+
+    <TabBar Route="MenuAdmin">
+        <Tab>
+            <ShellContent />
+        </Tab>
+        <Tab>
+            <ShellContent />
+        </Tab>
+        <Tab>
+            <ShellContent />
+        </Tab>
+    </TabBar>
+
+    <TabBar Route="MenuClient">
+        <Tab>
+            <ShellContent />
+        </Tab>
+        <Tab>
+            <ShellContent />
+        </Tab>
+        <Tab>
+            <ShellContent />
+        </Tab>
+    </TabBar>
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+</Shell>
