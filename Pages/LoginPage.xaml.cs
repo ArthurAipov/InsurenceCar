@@ -7,7 +7,11 @@ public partial class LoginPage : ContentPage
     public LoginPage()
     {
         InitializeComponent();
+        var user = DataManager.GetLoggedUser();
+        if (user != null)
+        {
 
+        }
 
     }
 
@@ -15,7 +19,8 @@ public partial class LoginPage : ContentPage
     private async void BLogin_Clicked(object sender, EventArgs e)
     {
         var users = await NetManager.Get<List<User>>("Users");
-
+        await DBConnection.RefreshEnums();
+        await DBConnection.RefreshData();
         var errorMessage = "";
         if (string.IsNullOrWhiteSpace(ELogin.Text))
             errorMessage += "¬ведите Ћогин\n";
@@ -34,13 +39,21 @@ public partial class LoginPage : ContentPage
             return;
         }
 
+        DataManager.SaveLoggedUser(user);
+
         switch(user.RoleId)
         {
             case 1:
-                await Shell.Current.DisplayAlert("Error","admin","ok");
+                await Shell.Current.DisplayAlert("Error", "admin", "ok");
                 break;
             case 2:
-                await Shell.Current.GoToAsync($"/");
+                await Shell.Current.DisplayAlert("Error", "admin", "ok");
+                break;
+            case 3:
+                await Shell.Current.DisplayAlert("Error", "client", "ok");
+                break;
+            case 4:
+                await Shell.Current.DisplayAlert("Error", "admin", "ok");
                 break;
         }
 
@@ -48,6 +61,6 @@ public partial class LoginPage : ContentPage
 
     private async void BRegistration_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync($"//RegistrationPage");
+        await Navigation.PushAsync(new RegistrationPage());
     }
 }

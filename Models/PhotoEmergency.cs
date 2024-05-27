@@ -12,24 +12,23 @@ namespace InsurenceCar.Models
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
-    public partial class User
+
+    public partial class PhotoEmergency
     {
         public int Id { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public int RoleId { get; set; }
+        public int EmergencyApplicationId { get; set; }
+        public byte[] Photo { get; set; }
 
         [JsonIgnore]
-        public Role Role
+        public EmergencyApplication EmergencyApplication
         {
             get
             {
-                return DBConnection.Roles.FirstOrDefault(c => c.Id == RoleId);
+                return DBConnection.EmergencyApplications.FirstOrDefault(x => x.Id == Id);
             }
             set
             {
-                RoleId = value.Id;
+                EmergencyApplicationId = value.Id;
             }
         }
     }

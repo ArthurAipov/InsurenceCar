@@ -9,28 +9,14 @@
 
 namespace InsurenceCar.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class User
-    {
+    public partial class Status
+    {   
         public int Id { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public int RoleId { get; set; }
-
-        [JsonIgnore]
-        public Role Role
-        {
-            get
-            {
-                return DBConnection.Roles.FirstOrDefault(c => c.Id == RoleId);
-            }
-            set
-            {
-                RoleId = value.Id;
-            }
-        }
+        public string Name { get; set; }
+    
+        public virtual ICollection<EmergencyApplication> EmergencyApplication { get; set; }
     }
 }

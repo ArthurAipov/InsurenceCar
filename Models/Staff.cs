@@ -12,24 +12,26 @@ namespace InsurenceCar.Models
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
-    public partial class User
+
+    public partial class Staff
     {
         public int Id { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public int RoleId { get; set; }
+        public int UserId { get; set; }
+        public string Name { get; set; }
+        public string Surename { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
 
         [JsonIgnore]
-        public Role Role
+        public User User
         {
             get
             {
-                return DBConnection.Roles.FirstOrDefault(c => c.Id == RoleId);
+                return DBConnection.Users.FirstOrDefault(u => u.Id == Id);
             }
             set
             {
-                RoleId = value.Id;
+                UserId = value.Id;
             }
         }
     }

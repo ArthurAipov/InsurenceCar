@@ -12,8 +12,10 @@ public partial class RegistrationPage : ContentPage
     private async void BSave_Clicked(object sender, EventArgs e)
     {
 		var users = await NetManager.Get<List<User>>("Users");
-		
-		var errorMessage = "";
+        await DBConnection.RefreshEnums();
+        await DBConnection.RefreshData();
+
+        var errorMessage = "";
 		if (string.IsNullOrWhiteSpace(ELogin.Text))
 			errorMessage += "Введите Логин\n";
 		if (string.IsNullOrWhiteSpace(EPassword.Text))
@@ -29,9 +31,10 @@ public partial class RegistrationPage : ContentPage
 			return;
 		}
 
-		var user = new User() { Login =  ELogin.Text, Password = EPassword.Text, RoleId = 2 };
+		var user = new User() { Login =  ELogin.Text, Password = EPassword.Text, RoleId = 3 };
 		await NetManager.Post("Users", user);
-		await Shell.Current.GoToAsync($"//LoginPage");
+		await Shell.Current.DisplayAlert("Успешно", "Вы зарегистрировались", "Ок");
+		await Navigation.PopAsync();
 
     }
 }
