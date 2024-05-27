@@ -11,7 +11,7 @@ namespace InsurenceCar.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Model
     {
         public int Id { get; set; }
@@ -21,7 +21,15 @@ namespace InsurenceCar.Models
         public string Year { get; set; }
         public string ModelYear { get; set; }
         public string Price { get; set; }
-    
+
+        public string Name
+        {
+            get
+            {
+                return Make + " " + ModelName;
+            }
+        }
+
         public virtual ICollection<Car> Car { get; set; }
     }
 }

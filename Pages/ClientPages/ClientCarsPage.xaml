@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InsurenceCar.Pages.ClientPages.ClientCarsPage"
+             Title="ClientCarsPage"
+             Loaded="ContentPage_Loaded"
+             Shell.NavBarIsVisible="False">
+    <Grid Style="{StaticResource gridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        <Button Style="{StaticResource buttonStyle}"
+                Grid.Row="1"
+                x:Name="BAddCar"
+                HeightRequest="50"
+                Text="Добавить машину"
+                Clicked="BAddCar_Clicked" />
+        <ScrollView>
+            <CollectionView x:Name="CVCars">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="15"
+                               BorderColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                               Margin="10">
+                            <StackLayout>
+                                <Label Text="{Binding Number}" />
+                                <Label Text="{Binding Model.Name}" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </Grid>
+</ContentPage>

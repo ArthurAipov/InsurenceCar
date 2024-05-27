@@ -1,4 +1,6 @@
 using InsurenceCar.Models;
+using InsurenceCar.Pages.AdminPages;
+using InsurenceCar.Pages.ClientPages;
 
 namespace InsurenceCar.Pages;
 
@@ -8,9 +10,10 @@ public partial class LoginPage : ContentPage
     {
         InitializeComponent();
         var user = DataManager.GetLoggedUser();
-        if (user != null)
+        if (user.Id != 0)
         {
-
+            GlobalSettings.MainUser = user;
+            Navigation.PushAsync(new MainMenuClientPage());
         }
 
     }
@@ -39,21 +42,22 @@ public partial class LoginPage : ContentPage
             return;
         }
 
-        DataManager.SaveLoggedUser(user);
+        GlobalSettings.MainUser = user;
+        GlobalSettings.SaveUser();
 
         switch(user.RoleId)
         {
             case 1:
-                await Shell.Current.DisplayAlert("Error", "admin", "ok");
+                await Navigation.PushAsync(new MainMenuAdminPage());
                 break;
             case 2:
-                await Shell.Current.DisplayAlert("Error", "admin", "ok");
+                await Navigation.PushAsync(new MainMenuAdminPage());
                 break;
             case 3:
-                await Shell.Current.DisplayAlert("Error", "client", "ok");
+                await Navigation.PushAsync(new MainMenuClientPage());
                 break;
             case 4:
-                await Shell.Current.DisplayAlert("Error", "admin", "ok");
+                await Navigation.PushAsync(new MainMenuAdminPage());
                 break;
         }
 

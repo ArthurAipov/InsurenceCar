@@ -11,7 +11,7 @@ namespace InsurenceCar
             MainPage = new AppShell();
 
             DataManager.InitDataFile(DataManager.LoggedUserPath, string.Empty);
-           
+            
 
 
         }

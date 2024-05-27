@@ -4,21 +4,25 @@
              x:Class="InsurenceCar.Pages.LoginPage"
              Title="LoginPage"
              Shell.NavBarIsVisible="False">
-    <Grid>
+    <Grid Style="{StaticResource gridStyle}">
         <StackLayout WidthRequest="200"
                      HorizontalOptions="Center"
                      VerticalOptions="Center">
-            <Entry Placeholder="Логин" 
-                   x:Name="ELogin"/>
+            <Entry Placeholder="Логин"
+                   Style="{StaticResource entryStyle}"
+                   x:Name="ELogin" />
             <Entry Placeholder="Пароль"
+                   Style="{StaticResource entryStyle}"
                    IsPassword="True"
                    x:Name="EPassword"/>
             <Button Text="Войти"
+                    Style="{StaticResource buttonStyle}"
                     x:Name="BLogin"
                     Clicked="BLogin_Clicked"
                     WidthRequest="150" />
             <Button Text="Регистрация"
                     x:Name="BRegistration"
+                    Style="{StaticResource buttonStyle}"
                     Clicked="BRegistration_Clicked"
                     WidthRequest="150" />
         </StackLayout>

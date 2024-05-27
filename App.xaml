@@ -9,6 +9,61 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="Button"
+                   x:Key="buttonStyle">
+                <Setter Property="Margin"
+                        Value="13" />
+                <Setter Property="FontSize"
+                        Value="16" />
+                <Setter Property="WidthRequest"
+                        Value="320" />
+                <Setter Property="HorizontalOptions"
+                        Value="Center" />
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+                <Setter Property="BorderColor"
+                        Value="LightGray" />
+                <Setter Property="BorderWidth"
+                        Value="1" />
+                <Setter Property="CornerRadius"
+                        Value="7" />
+                <Setter Property="TextColor"
+                        Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+                <Setter Property="Background"
+                        Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}" />
+            </Style>
+            <Style TargetType="Grid"
+                   x:Key="gridStyle">
+                <Setter Property="BackgroundColor"
+                        Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}" />
+            </Style>
+            <Style TargetType="Entry"
+                   x:Key="entryStyle">
+                <Setter Property="FontSize"
+                        Value="16" />
+                <Setter Property="TextColor"
+                        Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Start" />
+            </Style>
+            <Style TargetType="Label"
+                   x:Key="labelStyle">
+                <Setter Property="TextColor"
+                        Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+                <Setter Property="FontSize"
+                        Value="16" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Start" />
+            </Style>
+            <Style TargetType="DatePicker"
+                   x:Key="datePickerstyle">
+                <Setter Property="BackgroundColor"
+                        Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}" />
+                <Setter Property="FontSize"
+                        Value="16" />
+                <Setter Property="HeightRequest"
+                        Value="16" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
