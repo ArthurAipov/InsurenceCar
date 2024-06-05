@@ -9,12 +9,7 @@ public partial class LoginPage : ContentPage
     public LoginPage()
     {
         InitializeComponent();
-        var user = DataManager.GetLoggedUser();
-        if (user.Id != 0)
-        {
-            GlobalSettings.MainUser = user;
-            Navigate(user);
-        }
+       
 
     }
 

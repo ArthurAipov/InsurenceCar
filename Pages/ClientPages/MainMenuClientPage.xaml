@@ -23,14 +23,15 @@
                     x:Name="BOsago"
                     Style="{StaticResource buttonStyle}"
                     Clicked="BOsago_Clicked"/>
-            <Button Text="Выйти"
-                    x:Name="BExite"
-                    Style="{StaticResource buttonStyle}"
-                    Clicked="BExite_Clicked" />
             <Button Text="Оформить страховой случай"
                     x:Name="BIssue"
                     Style="{StaticResource buttonStyle}"
                     Clicked="BIssue_Clicked" />
+            <Button Text="Выйти"
+                    x:Name="BExite"
+                    Style="{StaticResource buttonStyle}"
+                    Clicked="BExite_Clicked" 
+                    BorderColor="Red"/>
         </StackLayout>
     </Grid>
 </ContentPage>

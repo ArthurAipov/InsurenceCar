@@ -19,7 +19,7 @@
                     SelectedIndexChanged="PBrend_SelectedIndexChanged" />
             <Picker Title="модель машины"
                     x:Name="PModel"
-                    SelectedItem="{BindingCondition Model}"
+                    SelectedItem="{Binding Model}"
                     ItemDisplayBinding="{Binding Name}"
                     SelectedIndexChanged="PModel_SelectedIndexChanged" />
             <Button Text="Добавить"
