@@ -5,9 +5,36 @@
              Title="ClientOsagoPage"
              Shell.NavBarIsVisible="False">
     <Grid Style="{StaticResource gridStyle}">
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <StackLayout WidthRequest="320"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <Image Source="carImage.jpg"
+                   WidthRequest="150" />
+            <Picker Title="Машина"
+                    x:Name="PCar"
+                    SelectedItem="{Binding Car}"
+                    ItemDisplayBinding="{Binding CarData}"
+                    SelectedIndexChanged="PCar_SelectedIndexChanged"/>
+            <Picker Title="Количество водителей"
+                    x:Name="PAmountOfDrivers"
+                    ItemDisplayBinding="{Binding Name}" 
+                    SelectedIndexChanged="PAmountOfDrivers_SelectedIndexChanged"/>
+            <Picker Title="Регион"
+                    x:Name="PRegion"
+                    SelectedItem="{Binding Region}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedIndexChanged="PRegion_SelectedIndexChanged"/>
+            <Label x:Name="LTotalPrice"
+                   HorizontalTextAlignment="Center"
+                   Style="{StaticResource labelStyle}"/>
+            <Button Text="Оформить"
+                    x:Name="BCreate"
+                    Clicked="BCreate_Clicked"
+                    Style="{StaticResource buttonStyle}" />
+            <Button Text="Назад"
+                    x:Name="BBack"
+                    Clicked="BBack_Clicked"
+                    Style="{StaticResource buttonStyle}" />
+        </StackLayout>
     </Grid>
 </ContentPage>

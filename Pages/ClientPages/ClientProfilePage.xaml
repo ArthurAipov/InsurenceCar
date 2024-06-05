@@ -5,9 +5,48 @@
              Title="ClientProfilePage"
              Shell.NavBarIsVisible="False">
     <Grid Style="{StaticResource gridStyle}">
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <StackLayout VerticalOptions="Center"
+                     WidthRequest="320"
+                     HorizontalOptions="Center">
+            <Entry Placeholder="Имя"
+                   Keyboard="Text"
+                   Text="{Binding Name}" />
+            <Entry Placeholder="Фамилия"
+                   Keyboard="Text"
+                   Text="{Binding Surname}" />
+            <Entry Placeholder="Отчество"
+                   Keyboard="Text"
+                   Text="{Binding Patronic}" />
+            <Entry Placeholder="Паспортные данные"
+                   Text="{Binding PassportData}"
+                   Keyboard="Telephone" />
+            <Entry Placeholder="Телефон"
+                   Text="{Binding Phone}"
+                   Keyboard="Telephone" />
+            <Entry Placeholder="Email"
+                   Text="{Binding Email}"
+                   Keyboard="Email" />
+            <Entry Placeholder="Водительское удостоверение"
+                   Text="{Binding DriverLicense}" />
+            <Label Text="Дата выдачи" />
+            <DatePicker x:Name="DPExperience"
+                        Date="{Binding Experience}"
+                        IsEnabled="False"
+                        WidthRequest="320"
+                        DateSelected="DPExperience_DateSelected"/>
+            <Label Text="Дата рождения" />
+            <DatePicker x:Name="DPBirthDate"
+                        Date="{Binding DateOfBirth}"
+                        WidthRequest="320"
+                        DateSelected="DPBirthDate_DateSelected"/>
+            <Button x:Name="BSave"
+                    Style="{StaticResource buttonStyle}"
+                    Clicked="BSave_Clicked"
+                    Text="Сохранить"/>
+            <Button x:Name="BBAck"
+                    Style="{StaticResource buttonStyle}"
+                    Clicked="BBAck_Clicked"
+                    Text="Назад" />
+        </StackLayout>
     </Grid>
 </ContentPage>

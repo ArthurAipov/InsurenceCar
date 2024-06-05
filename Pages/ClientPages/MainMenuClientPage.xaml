@@ -8,6 +8,9 @@
         <StackLayout HorizontalOptions="Center"
                      VerticalOptions="Center"
                      WidthRequest="300">
+            <Image Source="carimage.jpg" 
+                   WidthRequest="120"
+                   Margin="0,0,0,50"/>
             <Button Text="Профиль" 
                     Style="{StaticResource buttonStyle}"
                     x:Name="BProfile"
@@ -23,7 +26,11 @@
             <Button Text="Выйти"
                     x:Name="BExite"
                     Style="{StaticResource buttonStyle}"
-                    Clicked="BExite_Clicked"/>
+                    Clicked="BExite_Clicked" />
+            <Button Text="Оформить страховой случай"
+                    x:Name="BIssue"
+                    Style="{StaticResource buttonStyle}"
+                    Clicked="BIssue_Clicked" />
         </StackLayout>
     </Grid>
 </ContentPage>

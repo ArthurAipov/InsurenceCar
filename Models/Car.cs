@@ -24,23 +24,32 @@ namespace InsurenceCar.Models
         public System.DateTime DateOfPurchase { get; set; }
         public int ModelsId { get; set; }
 
+        public string CarData
+        {
+            get
+            {
+                return Model.Name.ToString() + " " + Number;
+            }
+        }
+
         [JsonIgnore]
         public Driver Driver
         {
             get
             {
-                return DBConnection.Drivers.FirstOrDefault(Driver => Driver.Id == Id);
+                return DBConnection.Drivers.FirstOrDefault(Driver => Driver.Id == DriverId);
             }
             set
             {
                 DriverId = value.Id;
             }
         }
+
         [JsonIgnore]
         public Model Model {
             get
             {
-                return DBConnection.Models.FirstOrDefault(x => x.Id == Id);
+                return DBConnection.Models.FirstOrDefault(x => x.Id == ModelsId);
             }
             set
             {

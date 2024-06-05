@@ -24,7 +24,7 @@ namespace InsurenceCar.Models
         {
             get
             {
-                return DBConnection.EmergencyApplications.FirstOrDefault(x => x.Id == Id);
+                return DBConnection.EmergencyApplications.FirstOrDefault(x => x.Id == EmergencyApplicationId);
             }
             set
             {

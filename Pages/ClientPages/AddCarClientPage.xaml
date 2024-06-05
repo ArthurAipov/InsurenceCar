@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InsurenceCar.Pages.ClientPages.AddCarClientPage"
+             Title="AddCarClientPage">
+    <Grid Style="{StaticResource gridStyle}">
+        <StackLayout>
+            <Entry Placeholder="Номер" 
+                   Text="{Binding Number}"/>
+            <Entry Placeholder="Мощьность" 
+                   Text="{Binding Horsepower}"/>
+            <Entry Placeholder="ВИН Номер"
+                   Text="{Binding VIN}" />
+            <Entry Placeholder="Паспорт"
+                   Text="{Binding Passport}" />
+            <Picker Title="марка машины"
+                    x:Name="PBrend"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedIndexChanged="PBrend_SelectedIndexChanged" />
+            <Picker Title="модель машины"
+                    x:Name="PModel"
+                    SelectedItem="{BindingCondition Model}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedIndexChanged="PModel_SelectedIndexChanged" />
+            <Button Text="Добавить"
+                    x:Name="BAdd"
+                    Clicked="BAdd_Clicked"/>
+
+
+        </StackLayout>
+    </Grid>
+</ContentPage>

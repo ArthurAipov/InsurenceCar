@@ -58,4 +58,9 @@ public partial class MainMenuClientPage : ContentPage
     {
         await Navigation.PushAsync(new ClientProfilePage());
     }
+
+    private async void BIssue_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ClientIssuePage());
+    }
 }

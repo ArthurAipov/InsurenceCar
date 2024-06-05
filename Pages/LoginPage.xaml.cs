@@ -13,9 +13,19 @@ public partial class LoginPage : ContentPage
         if (user.Id != 0)
         {
             GlobalSettings.MainUser = user;
-            Navigation.PushAsync(new MainMenuClientPage());
+            Navigate(user);
         }
 
+    }
+
+    private async void Navigate(User user)
+    {
+        if (user.RoleId == 3)
+        {
+            await Navigation.PushAsync(new MainMenuClientPage());
+            return;
+        }
+        await Navigation.PushAsync(new MainMenuAdminPage());
     }
 
 
@@ -45,21 +55,7 @@ public partial class LoginPage : ContentPage
         GlobalSettings.MainUser = user;
         GlobalSettings.SaveUser();
 
-        switch(user.RoleId)
-        {
-            case 1:
-                await Navigation.PushAsync(new MainMenuAdminPage());
-                break;
-            case 2:
-                await Navigation.PushAsync(new MainMenuAdminPage());
-                break;
-            case 3:
-                await Navigation.PushAsync(new MainMenuClientPage());
-                break;
-            case 4:
-                await Navigation.PushAsync(new MainMenuAdminPage());
-                break;
-        }
+        Navigate(user);
 
     }
 

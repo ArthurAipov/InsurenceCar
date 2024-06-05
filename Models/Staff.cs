@@ -27,7 +27,7 @@ namespace InsurenceCar.Models
         {
             get
             {
-                return DBConnection.Users.FirstOrDefault(u => u.Id == Id);
+                return DBConnection.Users.FirstOrDefault(u => u.Id == UserId);
             }
             set
             {

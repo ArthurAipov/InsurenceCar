@@ -26,7 +26,7 @@ namespace InsurenceCar.Models
         {
             get
             {
-                return Make + " " + ModelName;
+                return Make + " " + ModelYear;
             }
         }
 

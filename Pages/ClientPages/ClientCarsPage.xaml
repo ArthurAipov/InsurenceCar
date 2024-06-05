@@ -7,16 +7,23 @@
              Shell.NavBarIsVisible="False">
     <Grid Style="{StaticResource gridStyle}">
         <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
             <RowDefinition />
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
         <Button Style="{StaticResource buttonStyle}"
-                Grid.Row="1"
+                Grid.Row="0"
                 x:Name="BAddCar"
                 HeightRequest="50"
                 Text="Добавить машину"
                 Clicked="BAddCar_Clicked" />
-        <ScrollView>
+        <Button Style="{StaticResource buttonStyle}"
+                Grid.Row="2"
+                x:Name="BBack"
+                HeightRequest="50"
+                Text="Назад"
+                Clicked="BBack_Clicked" />
+        <ScrollView Grid.Row="1">
             <CollectionView x:Name="CVCars">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

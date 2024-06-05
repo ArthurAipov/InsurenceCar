@@ -32,5 +32,8 @@ namespace InsurenceCar.Models
                 RoleId = value.Id;
             }
         }
+
+        public virtual ICollection<Driver> Driver { get; set; }
+        public virtual ICollection<Staff> Staff { get; set; }
     }
 }

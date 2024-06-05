@@ -27,7 +27,7 @@ namespace InsurenceCar.Models
         {
             get
             {
-                return DBConnection.Cars.FirstOrDefault(Car => Car.Id == Id);
+                return DBConnection.Cars.FirstOrDefault(Car => Car.Id == CarId);
             }
             set
             {
@@ -39,7 +39,7 @@ namespace InsurenceCar.Models
         {
             get
             {
-                return DBConnection.Drivers.FirstOrDefault(Driver => Driver.Id == Id);
+                return DBConnection.Drivers.FirstOrDefault(Driver => Driver.Id == DriverId);
             }
             set
             {

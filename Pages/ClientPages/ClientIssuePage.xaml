@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InsurenceCar.Pages.ClientPages.ClientIssuePage"
+             Title="ClientIssuePage"
+             Shell.NavBarIsVisible="False">
+    <Grid Style="{StaticResource gridStyle}">
+        <StackLayout>
+            <Label FontSize="12"
+                   Style="{StaticResource labelStyle}"
+                   WidthRequest="320"
+                   Margin="0,50,0,50"
+                   Text="Компания Безопасное страхование возникла в 2010 году, когда группа энтузиастов-страховщиков, работающих в автомобильной отрасли, объединилась с целью создания более прозрачных и доступных страховых услуг для автовладельцев. Вдохновленные идеей, что страхование должно приносить уверенность и спокойствие, они решили предложить клиентам простые и честные условия, акцентируя внимание на безопасности и защите. С тех пор Безопасное страхование активно внедряет инновационные технологии и разрабатывает уникальные страховые продукты, которые помогают людям чувствовать себя защищенными на дорогах. Стремление к совершенству и забота о клиентах сделали компанию одной из ведущих на рынке автомобильного страхования." />
+            <Picker ItemDisplayBinding="{Binding CarData}"
+                    x:Name="PCars"
+                    Title="Машина попавшая в дтп"
+                    SelectedItem="{Binding Car}" />
+            <Button Text="Оформить"
+                    x:Name="BIssue"
+                    Style="{StaticResource buttonStyle}"
+                    Clicked="BIssue_Clicked" />
+            <Image Source="carImage.jpg" 
+                   WidthRequest="150"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>
