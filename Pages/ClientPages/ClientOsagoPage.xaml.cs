@@ -17,10 +17,8 @@ public partial class ClientOsagoPage : ContentPage
     private async void InitPage()
     {
         var oneUser = new CountOfUser { Id = 1, Name = "Один" };
-        var twoUser = new CountOfUser { Id = 2, Name = "Два" };
         var Unlimited = new CountOfUser { Id = 3, Name = "Безгранично" };
         countList.Add(oneUser);
-        countList.Add(twoUser);
         countList.Add(Unlimited);
         PAmountOfDrivers.ItemsSource = countList.ToList();
         var cars = await GlobalSettings.GetCars();
@@ -65,8 +63,6 @@ public partial class ClientOsagoPage : ContentPage
         }
         if (selectedCount != null)
         {
-            if (selectedCount.Id == 2)
-                fullPrice = fullPrice * 1.3;
             if (selectedCount.Id == 3)
                 fullPrice = fullPrice * 2.6;
         }
@@ -243,7 +239,11 @@ public partial class ClientOsagoPage : ContentPage
             if (birth > 59)
                 fullPrice = fullPrice * 0.83;
         }
-        LTotalPrice.Text = "Полная цена:" + fullPrice.ToString();
+
+        var price = fullPrice.ToString().Split(',');
+        var firstPart = price[0];
+        var secondPart = price[1].ToString()[0];
+        LTotalPrice.Text = "Полная цена: " + firstPart + "." + secondPart;
         TotalPrice = fullPrice;
     }
 

@@ -8,8 +8,8 @@
         <StackLayout HorizontalOptions="Center"
                      VerticalOptions="Center"
                      WidthRequest="300">
-            <Image Source="carimage.jpg" 
-                   WidthRequest="120"
+            <Image Source="carimage.png" 
+                   WidthRequest="200"
                    Margin="0,0,0,50"/>
             <Button Text="Профиль" 
                     Style="{StaticResource buttonStyle}"
